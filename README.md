@@ -3,6 +3,8 @@
 - Backend: Express REST API (in-memory)
 - Frontend: React + Vite + plain CSS
 
+(Readme file idea copied from this [readme.md file example](https://github.com/RichardLitt/standard-readme) )
+
 <img width="2410" height="1080" alt="image" src="https://github.com/user-attachments/assets/81a1fa1e-7f21-4659-9719-f39afec0737b" />
 
 
