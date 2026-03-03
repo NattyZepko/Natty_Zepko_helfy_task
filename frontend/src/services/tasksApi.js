@@ -17,7 +17,7 @@ async function requestJson(url, options) {
 	const data = await parseJsonResponse(response);
 
 	if (!response.ok) {
-		// Keep error messages user-friendly.
+		// Keep error-messages user-friendly.
 		const message = data?.error || `Request failed (${response.status})`;
 		throw new Error(message);
 	}

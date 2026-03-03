@@ -10,9 +10,6 @@ const {
 
 const tasksRouter = express.Router();
 
-// Routes are intentionally thin: they just map URL -> controller.
-// Validation + business logic lives in the controller/store.
-
 tasksRouter.get('/', handleGetTasks);
 tasksRouter.post('/', handleCreateTask);
 tasksRouter.put('/:id', handleReplaceTask);

@@ -1,5 +1,4 @@
-// In-memory store: super simple, but resets whenever the server restarts.
-const tasks = [];
+const tasks = []; // Server memory storage for tasks.
 let nextId = 1;
 
 function getAllTasks() {
@@ -7,7 +6,6 @@ function getAllTasks() {
 }
 
 function createTask({ title, description, priority }) {
-	// Keep task shape stable; the frontend relies on these fields.
 	const newTask = {
 		id: nextId,
 		title,

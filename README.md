@@ -78,9 +78,11 @@ In dev, the frontend calls the backend through `/api/...` and Vite proxies that 
 
 Validation failures return 400 with `{ "error": "..." }`.
 
-## Carousel (how it works)
+## Key Features & Design Decisions
 
-The carousel is _infinite-feeling_ (not a paginated list and not a simple scroll container). The core design is:
+### The Carousel:
+
+The carousel is _infinite-feeling_ (not a library). The core design is:
 
 1. Keep one task "focused"
 
@@ -106,9 +108,9 @@ The carousel is _infinite-feeling_ (not a paginated list and not a simple scroll
 
 Implementation lives in the hook `frontend/src/services/useTaskCarousel.js` and is consumed by the mostly-presentational `frontend/src/components/TaskList.jsx`.
 
-## Drag-and-drop reorder (how it works)
+### Drag-and-drop reorder
 
-Reordering is intentionally "hands-on" and visual:
+Reordering is intentionally "hands-on" and visual, I Built it using pointer events and "setPointerCapture"
 
 - It's pointer-based (not HTML5 drag events): on "pointerdown" I start a drag and listen on "document" for move/up.
 - I keep a "dragState" object with:
@@ -120,10 +122,9 @@ Reordering is intentionally "hands-on" and visual:
   - neighboring slides "scooch" left/right using `transform` so you can see where the card will land.
 - On drop I call `onReorderTask(sourceId, targetId)`.
 
-Notes / constraints:
+Notes
 
-- Reordering is only enabled when the UI is in "Manual" order.
-- The backend does not persist ordering (tasks are in-memory); ordering is a frontend concern in this project.
+- The backend does not persist ordering (tasks are in-memory) so ordering is a frontend concern.
 
 ## Sources
 
@@ -161,3 +162,49 @@ Pointer events / drag interactions
 CSS Grid (THIS ONE HELPED A LOT!)
 
 - https://css-tricks.com/complete-guide-css-grid-layout/
+
+Badges
+
+- https://tailwindcss.com/plus/ui-blocks/application-ui/elements/badges
+
+---
+
+# Time Spent (Realistic Breakdown, I didn't ACTUALLY measure)
+
+Total time spent: About 4 hours.
+12:05 -> 16:20, with two mandatory pauses caused by country-wide alerts:
+
+- 12:42 – 12:55 (about 13 minutes)
+- 14:52 – 15:12 (about 20 minutes)
+
+### Backend API — 45 minutes
+
+It didn't take long to build an Express server, as I do it often on my side projects.
+Added routes, controllers, basic error handling, and in-memory storage.
+Basic testing with postman.
+
+### Frontend Core Features - A bit over 2 hours (~2:15:00~)
+
+Started with react app setup.
+Task fetching, Reading online about the forms, and making the task form.
+Building the controlled inputs, initial layout and panels (sort of the design I envisioned after reading the task file)
+Started building the carousel logic, and had to scrap it twice.
+Rewrote the "window index" logic also twice.
+Added the manual reorder, and build the drag logic.
+
+It worked but it looked janky. I added the "scooching over" animation for the neigbors to move.
+Debugged pointer events for 20 minutes.
+Cleaned up the state management (LOTS OF REDUNDANCY).
+Read online on how to do the circling back multiple times, as the logic broke, and then fixed the sizes of the "task card" components because the buttons wrapped out of the cards.
+
+Added the Dark/Light mode after I re-read the document. I found a simple guide for it.
+
+### Styling and polish - About 25 minutes
+
+I realized how to make the light / dark theme look better after reading the guide over.
+Priority badges copied from tailwindcss
+Final responsive tweaks, and checked colors look good in both modes.
+
+### Testing and debugging - About 20 minutes
+
+Verified UI behavior, Fixed another out-of-bounds carousel reset that I noticed when I had 2/3 items.

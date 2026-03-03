@@ -9,11 +9,6 @@ const PORT = 4000;
 
 const app = express();
 
-// Keep middleware order boring and predictable:
-// 1) CORS + JSON parsing
-// 2) API routes
-// 3) 404 for anything else
-// 4) centralized error handler
 app.use(cors());
 app.use(express.json());
 

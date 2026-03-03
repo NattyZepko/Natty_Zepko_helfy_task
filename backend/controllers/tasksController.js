@@ -33,7 +33,6 @@ async function handleGetTasks(req, res, next) {
 
 async function handleCreateTask(req, res, next) {
 	try {
-		// Validate early and fail fast with a 400.
 		const validationError = validateNewTaskInput(req.body);
 		if (validationError) {
 			throw createHttpError(400, validationError);
@@ -53,7 +52,6 @@ async function handleCreateTask(req, res, next) {
 
 async function handleReplaceTask(req, res, next) {
 	try {
-		// PUT is a full replace in this API.
 		const taskId = parseTaskIdParam(req.params.id);
 		if (!taskId) {
 			throw createHttpError(400, 'Task id must be a positive integer');
