@@ -177,7 +177,7 @@ Total time spent: About 4 hours.
 - 12:42 – 12:55 (about 13 minutes)
 - 14:52 – 15:12 (about 20 minutes)
 
-### Backend API — 45 minutes
+### Backend API - 45 minutes
 
 It didn't take long to build an Express server, as I do it often on my side projects.
 Added routes, controllers, basic error handling, and in-memory storage.
