@@ -3,6 +3,9 @@
 - Backend: Express REST API (in-memory)
 - Frontend: React + Vite + plain CSS
 
+<img width="2410" height="1080" alt="image" src="https://github.com/user-attachments/assets/81a1fa1e-7f21-4659-9719-f39afec0737b" />
+
+
 ## Tech stack
 
 [![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?logo=node.js&logoColor=white)](https://nodejs.org/en)
