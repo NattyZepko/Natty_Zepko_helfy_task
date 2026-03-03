@@ -7,7 +7,6 @@
 
 <img width="2410" height="1080" alt="image" src="https://github.com/user-attachments/assets/81a1fa1e-7f21-4659-9719-f39afec0737b" />
 
-
 ## Tech stack
 
 [![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?logo=node.js&logoColor=white)](https://nodejs.org/en)
@@ -24,19 +23,19 @@
 
 - [backend/controllers/tasksController.js](https://github.com/NattyZepko/Natty_Zepko_helfy_task/blob/main/backend/controllers/tasksController.js)
   - This is where I do request validation, translate store results into HTTP responses, and raise structured errors.
-  - `handleCreateTask` / `handleReplaceTask` - they validate input and use `createHttpError(...)` so failures become predictable `400/404` responses.
+  - `handleCreateTask` / `handleReplaceTask` - they validate input and use `createHttpError(...)` so failures become predictable 400/404 responses.
 
 - [backend/store/tasksStore.js](https://github.com/NattyZepko/Natty_Zepko_helfy_task/blob/main/backend/store/tasksStore.js)
   - This is the in-memory "database" (the source of truth for tasks while the server is running).
-  - The `createTask(...)` (assigns `nextId`, sets `createdAt`) and the id-based helpers like `replaceTaskById(...)` / `toggleTaskCompletionById(...)`.
+  - The `createTask(...)` (assigns "nextId", sets "createdAt") and the id-based helpers like `replaceTaskById(...)` / `toggleTaskCompletionById(...)`.
 
 - [frontend/src/services/useTaskCarousel.js](https://github.com/NattyZepko/Natty_Zepko_helfy_task/blob/main/frontend/src/services/useTaskCarousel.js)
   - _This is the core of the "real" infinite-feeling carousel and the pointer-based drag-reorder._
-  - Note that `handleTransitionEnd(...)` - is the "animate one step, then recenter" trick (update `activeIndex`, reset `shift` with transitions briefly disabled).
+  - Note that `handleTransitionEnd(...)` - is the "animate one step, then recenter" trick (update "activeIndex", reset "shift" with transitions briefly disabled).
 
 - [frontend/src/components/TaskList.jsx](https://github.com/NattyZepko/Natty_Zepko_helfy_task/blob/main/frontend/src/components/TaskList.jsx)
   - This is the mostly-presentational component that turns the carousel state into actual DOM + CSS transforms.
-  - It controls the per-slide "scooch" `transform` calculation during drag, which makes neighbors slide out of the way in real time.
+  - It controls the per-slide "scooch away" transform calculation during drag, which makes neighbors slide out of the way in real time.
 
 - [frontend/src/services/tasksApi.js](https://github.com/NattyZepko/Natty_Zepko_helfy_task/blob/main/frontend/src/services/tasksApi.js)
   - This unit keeps all fetch calls in one place and normalizes error handling for the UI.
@@ -77,7 +76,7 @@ In dev, the frontend calls the backend through `/api/...` and Vite proxies that 
 - `DELETE /api/tasks/:id`
 - `PATCH /api/tasks/:id/toggle`
 
-Validation failures return `400` with `{ "error": "..." }`.
+Validation failures return 400 with `{ "error": "..." }`.
 
 ## Carousel (how it works)
 
@@ -85,7 +84,7 @@ The carousel is _infinite-feeling_ (not a paginated list and not a simple scroll
 
 1. Keep one task "focused"
 
-- I track a focused index (`activeIndex`) for the real `tasks` array.
+- I track a focused index (`activeIndex`) for the real "tasks" array.
 
 2. Render a small "window" around the focus
 
@@ -95,15 +94,15 @@ The carousel is _infinite-feeling_ (not a paginated list and not a simple scroll
 
 3. Animate one step, then recenter
 
-- Clicking next/prev sets a temporary `shift` of `+1` or `-1`.
+- Clicking next/prev sets a temporary "shift" of +1 or -1.
 - The track uses `transform: translateX(...)` to slide exactly one card width.
-- When the CSS transition ends, I update `activeIndex` to the next/previous real task and reset `shift` back to `0`.
+- When the CSS transition ends, I update "activeIndex" to the next/previous real task and reset shift back to 0.
 - I briefly disable transitions during that reset so you don't see a snap.
 
 4. Keep focus stable across list changes
 
 - When tasks change (filtering, deleting, reordering), I remember the currently focused task id.
-- I then find that id in the new list and update `activeIndex` so the carousel doesn't jump to a random card.
+- I then find that id in the new list and update "activeIndex" so the carousel doesn't jump to a random card.
 
 Implementation lives in the hook `frontend/src/services/useTaskCarousel.js` and is consumed by the mostly-presentational `frontend/src/components/TaskList.jsx`.
 
@@ -111,8 +110,8 @@ Implementation lives in the hook `frontend/src/services/useTaskCarousel.js` and 
 
 Reordering is intentionally "hands-on" and visual:
 
-- It's pointer-based (not HTML5 drag events): on `pointerdown` I start a drag and listen on `document` for move/up.
-- I keep a `dragState` object with:
+- It's pointer-based (not HTML5 drag events): on "pointerdown" I start a drag and listen on "document" for move/up.
+- I keep a "dragState" object with:
   - which task you're dragging,
   - where the pointer is,
   - which slide you're currently closest to.
