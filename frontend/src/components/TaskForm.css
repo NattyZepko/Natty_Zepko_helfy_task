@@ -1,0 +1,72 @@
+.taskForm {
+	display: grid;
+	gap: 10px;
+}
+
+.taskFormLabel {
+	display: grid;
+	gap: 6px;
+	font-size: 13px;
+	color: var(--muted);
+}
+
+.taskFormInput,
+.taskFormTextarea,
+.taskFormSelect {
+	padding: 8px 10px;
+	border-radius: 10px;
+	border: 1px solid var(--border);
+	background: rgba(255, 255, 255, 0.02);
+	color: var(--text);
+	outline: none;
+	font: inherit;
+}
+
+.taskFormTextarea {
+	resize: vertical;
+}
+
+.taskFormInput:focus,
+.taskFormTextarea:focus,
+.taskFormSelect:focus {
+	border-color: rgb(var(--accent-rgb) / 0.6);
+	box-shadow: 0 0 0 3px rgb(var(--accent-rgb) / 0.15);
+}
+
+.taskFormError {
+	color: var(--danger);
+	font-size: 12px;
+}
+
+.taskFormButtons {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+
+.primaryButton,
+.secondaryButton {
+	border-radius: 10px;
+	padding: 9px 12px;
+	cursor: pointer;
+	border: 1px solid var(--border);
+	background: transparent;
+	color: var(--text);
+	transition:
+		background 120ms ease,
+		border-color 120ms ease;
+}
+
+.primaryButton {
+	border-color: rgb(var(--accent-rgb) / 0.55);
+	background: rgb(var(--accent-rgb) / 0.1);
+}
+
+.primaryButton:hover {
+	background: rgb(var(--accent-rgb) / 0.16);
+	border-color: rgb(var(--accent-rgb) / 0.75);
+}
+
+.secondaryButton:hover {
+	background: rgba(255, 255, 255, 0.05);
+}

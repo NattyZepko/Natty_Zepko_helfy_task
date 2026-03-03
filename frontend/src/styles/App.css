@@ -1,0 +1,93 @@
+.app {
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 24px 16px 40px;
+}
+
+.appHeader {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	margin-bottom: 18px;
+}
+
+.appTitle {
+	font-size: 26px;
+	line-height: 1.2;
+	margin: 0;
+}
+
+.appSubtitle {
+	margin: 6px 0 0;
+	color: var(--muted);
+	font-size: 14px;
+}
+
+.themeToggle {
+	border: 1px solid var(--border);
+	background: transparent;
+	color: var(--text);
+	padding: 8px 10px;
+	border-radius: 10px;
+	cursor: pointer;
+	transition:
+		background 120ms ease,
+		border-color 120ms ease;
+}
+
+.themeToggle:hover {
+	background: rgb(var(--accent-rgb) / 0.08);
+	border-color: rgb(var(--accent-rgb) / 0.4);
+}
+
+.errorBanner {
+	border: 1px solid rgba(185, 28, 28, 0.45);
+	background: rgba(185, 28, 28, 0.12);
+	color: var(--text);
+	padding: 10px 12px;
+	border-radius: 12px;
+	margin-bottom: 14px;
+}
+
+.appGrid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 14px;
+	margin-bottom: 14px;
+}
+
+@media (min-width: 900px) {
+	.appGrid {
+		grid-template-columns: 1.1fr 0.9fr;
+	}
+}
+
+.panel {
+	border: 1px solid var(--border);
+	background: var(--panel);
+	border-radius: 14px;
+	padding: 14px;
+}
+
+.panelWide {
+	padding: 14px 14px 10px;
+}
+
+.panelTitle {
+	margin: 0 0 10px;
+	font-size: 16px;
+}
+
+.panelHeaderRow {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 12px;
+	margin-bottom: 10px;
+}
+
+.subtle {
+	color: var(--muted);
+	font-size: 13px;
+}

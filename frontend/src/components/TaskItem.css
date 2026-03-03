@@ -1,0 +1,134 @@
+.taskCard {
+	border: 1px solid var(--border);
+	background: rgba(255, 255, 255, 0.02);
+	border-radius: 12px;
+	padding: 13px;
+	display: grid;
+	gap: 10px;
+	grid-template-rows: minmax(0, 1fr) auto auto;
+	height: 210px;
+	cursor: grab;
+	transition:
+		border-color 140ms ease-out,
+		background 110ms ease-in,
+		transform 130ms ease;
+}
+
+/* Ensure long content never pushes actions outside the card */
+.taskCardBody {
+	overflow: hidden;
+}
+
+.taskCard:active {
+	cursor: grabbing;
+}
+
+.taskCardActive {
+	border-color: rgb(var(--accent-rgb) / 0.55);
+}
+
+.taskCardPending {
+	border-color: rgba(249, 115, 22, 0.5);
+	background: rgba(249, 115, 22, 0.08);
+}
+
+.taskCardCompleted {
+	border-color: rgba(34, 197, 94, 0.55);
+	background: rgba(34, 197, 94, 0.08);
+	opacity: 0.92;
+}
+
+.taskCardTitleRow {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 10px;
+	min-width: 0;
+}
+
+.taskTitle {
+	margin: 0;
+	font-size: 15px;
+	min-width: 0;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	/* clamp it before it explodes the layout, otherwise things look janky */
+	line-clamp: 2;
+	-webkit-line-clamp: 2;
+}
+
+.taskDescription {
+	margin: 8px 0 0;
+	color: var(--muted);
+	font-size: 12px;
+	overflow-wrap: anywhere;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	line-clamp: 3;
+	-webkit-line-clamp: 3;
+}
+
+.taskMetaRow {
+	display: grid;
+	gap: 3px;
+}
+
+.taskMeta {
+	color: var(--muted);
+	font-size: 12px;
+}
+
+.badgeHigh {
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	padding: 4px 8px;
+	border-radius: 999px;
+	border: 1px solid var(--border);
+}
+
+.priority-low {
+	border-color: rgba(34, 197, 94, 0.6);
+	color: rgba(34, 197, 94, 0.95);
+}
+
+.priority-medium {
+	border-color: rgba(249, 115, 22, 0.65);
+	color: rgba(249, 115, 22, 0.95);
+}
+
+.priority-high {
+	border-color: rgba(239, 68, 68, 0.7);
+	color: rgba(239, 68, 68, 0.95);
+}
+
+.taskActions {
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.taskActionButton {
+	border: 1px solid var(--border);
+	background: transparent;
+	color: var(--text);
+	border-radius: 10px;
+	padding: 6px 11px;
+	cursor: pointer;
+	transition:
+		background 120ms ease,
+		border-color 120ms ease;
+}
+
+.taskActionButton:hover {
+	background: rgba(255, 255, 255, 0.05);
+	border-color: rgb(var(--accent-rgb) / 0.55);
+}
+
+.taskActionButton.danger:hover {
+	border-color: rgba(185, 28, 28, 0.7);
+	background: rgba(255, 255, 255, 0.06);
+}
