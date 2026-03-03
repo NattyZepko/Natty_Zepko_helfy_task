@@ -30,7 +30,7 @@
   - The `createTask(...)` (assigns "nextId", sets "createdAt") and the id-based helpers like `replaceTaskById(...)` / `toggleTaskCompletionById(...)`.
 
 - [frontend/src/services/useTaskCarousel.js](https://github.com/NattyZepko/Natty_Zepko_helfy_task/blob/main/frontend/src/services/useTaskCarousel.js)
-  - _This is the core of the "real" infinite-feeling carousel and the pointer-based drag-reorder._
+  - THIS is the core of the "real" infinite-feeling carousel and the pointer-based drag-reorder!
   - Note that `handleTransitionEnd(...)` - is the "animate one step, then recenter" trick (update "activeIndex", reset "shift" with transitions briefly disabled).
 
 - [frontend/src/components/TaskList.jsx](https://github.com/NattyZepko/Natty_Zepko_helfy_task/blob/main/frontend/src/components/TaskList.jsx)
